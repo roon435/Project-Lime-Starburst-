@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baixos Rooting Den</title>
+    <!-- Favicon / site logo in the tab -->
+    <link rel="icon" type="image/png" href="BaixosRootingDen.png">
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 60px;
+        }
+        #passwordBox, #secretPasswordBox {
+            display: none;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4a4aff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #3333ff;
+        }
+        #logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo at the top of the page -->
+    <div style="text-align:center;">
+        
+    </div>
+
+    <h1>This site is locked.</h1>
+    <p>You need whitelist from Cam to play Mario. Ask him to whitelist you for a while.</p>
+    <p>Whitelisted people, please enjoy the game :).<br>
+    Please note I did not make this Mario game — Jax made this game (I made whitelist with AI).</p>
+
+    <button id="playBtn">Play Mario (15‑min)</button>
+
+    <div id="passwordBox">
+        <p>Enter password:</p>
+        <input type="password" id="pwdInput" placeholder="Password">
+        <br>
+        <button onclick="submitPassword()">Submit</button>
+    </div>
+
+    <div id="secretPasswordBox">
+        <p>Secret mode password:</p>
+        <input type="password" id="secretPwdInput" placeholder="Password">
+        <br>
+        <button onclick="secretSubmit()">Play Forever</button>
+    </div>
+
+    <script>
+        const correctPassword = "roongoon678";
+        let popupWindow = null;
+
+        // Normal Play button
+        document.getElementById("playBtn").onclick = function () {
+            document.getElementById("passwordBox").style.display = "block";
+        };
+
+        function submitPassword() {
+            const entered = document.getElementById("pwdInput").value;
+            if (entered !== correctPassword) {
+                alert("Wrong password.");
+                return;
+            }
+
+            popupWindow = window.open("about:blank", "_blank");
+            popupWindow.document.write(`
+                <iframe src="https://fr-mario.vercel.app" style="border:none;width:100%;height:100vh;"></iframe>
+            `);
+
+            // Auto-close after 15 minutes
+            setTimeout(() => {
+                if (popupWindow && !popupWindow.closed) popupWindow.close();
+            }, 15 * 60 * 1000);
+        }
+
+        // Secret ; key → opens secret password box
+        document.addEventListener("keydown", (event) => {
+            if (event.key === ";") {
+                document.getElementById("secretPasswordBox").style.display = "block";
+            }
+        });
+
+        // Secret mode: unlimited play
+        function secretSubmit() {
+            const pw = document.getElementById("secretPwdInput").value;
+            if (pw !== correctPassword) {
+                alert("Wrong password.");
+                return;
+            }
+
+            popupWindow = window.open("about:blank", "_blank");
+            popupWindow.document.write(`
+                <iframe src="https://fr-mario.vercel.app" style="border:none;width:100%;height:100vh;"></iframe>
+            `);
+        }
+    </script>
+<a href="index.html" style="position:absolute; top:15px; left:15px;">
+    <img src="BaixosRootingDen.png" 
+         alt="Home" 
+         style="width:85px; height:auto; cursor:pointer;">
+</a>
+
+
+</body>
+</html>
+
+
+
+
+
