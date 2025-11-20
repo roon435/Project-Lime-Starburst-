@@ -17,24 +17,28 @@
 
 <button onclick="openProxy()"
 style="padding:10px 20px; font-size:18px;">
-    Open Home In Proxy
+    Open Home Proxy
 </button>
 
 <script>
 function openProxy() {
     let win = window.open("about:blank", "_blank");
 
-    if (win) {
-        win.document.body.style.margin = "0";
-        win.document.body.style.padding = "0";
-        win.document.body.style.background = "black";
-
-        win.document.write(`
-            <iframe src="home.html" style="border:0; width:100vw; height:100vh;"></iframe>
-        `);
+    if (!win) {
+        alert("Popup blocked!");
+        return;
     }
+
+    win.document.write(`
+        <style>
+        body { margin:0; background:black; }
+        iframe { width:100vw; height:100vh; border:0; }
+        </style>
+        <iframe src="home.html"></iframe>
+    `);
 }
 </script>
+
 
 </body>
 </html>
