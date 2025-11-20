@@ -15,29 +15,68 @@
 
     <h1 style="font-size:40px;">🟩 Project Lime Starburst 🟩</h1>
 
-<button onclick="openProxy()"
-style="padding:10px 20px; font-size:18px;">
-    Open Home Proxy
-</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proxy Launcher</title>
 
-<script>
-function openProxy() {
-    let win = window.open("about:blank", "_blank");
+    <!-- Page Styling -->
+    <style>
+        body {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding-top: 120px;
+            font-family: Arial, sans-serif;
+        }
 
-    if (!win) {
-        alert("Popup blocked!");
-        return;
-    }
+        .open-btn {
+            display: inline-block;
+            padding: 20px 40px;      /* bigger button */
+            font-size: 24px;         /* bigger text */
+            border: 3px solid white; /* thicker white outline */
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-    win.document.write(`
-        <style>
-        body { margin:0; background:black; }
-        iframe { width:100vw; height:100vh; border:0; }
-        </style>
-        <iframe src="home.html"></iframe>
-    `);
-}
-</script>
+        .open-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+        function openProxy() {
+            const win = window.open("about:blank", "_blank");
+
+            if (!win) {
+                alert("Your browser blocked the popup!");
+                return;
+            }
+
+            // Write proxy loader pointing to home.html
+            win.document.write(`
+                <iframe src="home.html"
+                    style="position:fixed; top:0; left:0; width:100%; height:100%; border:none; margin:0; padding:0;">
+                </iframe>
+            `);
+            win.document.close();
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Proxy Launcher</h1>
+    <p>Click the button to open Home.html in a proxy window.</p>
+
+    <a class="open-btn" onclick="openProxy()">Open Home</a>
+
+</body>
+</html>
+
 
 
 </body>
