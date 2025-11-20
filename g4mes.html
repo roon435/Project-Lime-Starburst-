@@ -42,24 +42,25 @@ function openProxy() {
         </html>
     `);
 }
-</script>
-
 <style>
-button:hover {
-    transform: scale(1.12);
-    background: rgba(255,255,255,0.15);
-}
+    .white-btn {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        border: 3px solid white;
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
 
-<button onclick="window.location.href='yourpage.html'"
-style="
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-">
-    Go to Page
-</button>
+    .white-btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<a class="white-btn" href="#" onclick="window.open('https://d1tm91r4ytbt54.cloudfront.net/cfdc194a-c785-49fe-b23c-e24a9cf3d561/1680733407296/shellshock.io/index.html', '_blank', 'noopener,noreferrer'); return false;">
+    Shell Shockers
+</a>
 
