@@ -15,25 +15,26 @@
 
     <h1 style="font-size:40px;">🟩 Project Lime Starburst 🟩</h1>
 
-    <!-- hidden keybind -->
-    <script>
-    document.addEventListener("keydown", function(e) {
-        if (e.key === "]") {
-            window.location.href = "mario.html";
-        }
-    });
-    </script>
-<button 
-    onclick="window.location.href='windowspeller.html'"
-    style="padding:15px 30px; font-size:20px; cursor:pointer; border-radius:10px; margin-top:20px;">
-    Window Speller
+<button onclick="openProxy()"
+style="padding:10px 20px; font-size:18px;">
+    Open Home In Proxy
 </button>
+
+<script>
+function openProxy() {
+    let win = window.open("about:blank", "_blank");
+
+    if (win) {
+        win.document.body.style.margin = "0";
+        win.document.body.style.padding = "0";
+        win.document.body.style.background = "black";
+
+        win.document.write(`
+            <iframe src="home.html" style="border:0; width:100vw; height:100vh;"></iframe>
+        `);
+    }
+}
 </script>
-<button 
-    onclick="window.location.href='YouDontKnowWhoIAm.html'"
-    style="padding:15px 30px; font-size:20px; cursor:pointer; border-radius:10px; margin-top:20px;">
-    Baixo Raid
-</button>
-    
+
 </body>
 </html>
