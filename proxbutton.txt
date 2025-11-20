@@ -17,7 +17,7 @@ function openProxy() {
     win.document.write(`
         <html>
             <head>
-                <title>Prox Window</title>
+                <title>proxtitlehere</title>
             </head>
             <body style="margin:0; overflow:hidden;">
                 <iframe src="https://ursite.com" style="width:100vw; height:100vh; border:none;"></iframe>
